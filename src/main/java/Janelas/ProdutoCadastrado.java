@@ -4,6 +4,8 @@
  */
 package Janelas;
 
+import Objetos.Produto;
+
 /**
  *
  * @author leonardo.hpavan
@@ -16,6 +18,14 @@ public class ProdutoCadastrado extends javax.swing.JFrame {
     public ProdutoCadastrado() {
         initComponents();
     }
+    
+    public ProdutoCadastrado(Produto p){
+        initComponents();
+        jLNome.setText(p.getNome());
+        jLDescricao.setText(p.getDescricao());
+        jLQtd.setText(String.valueOf(p.getQtd()));
+        jLPreco.setText(String.valueOf(p.getPreco()));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,21 +36,114 @@ public class ProdutoCadastrado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLNome = new javax.swing.JLabel();
+        jLDescricao = new javax.swing.JLabel();
+        jLQtd = new javax.swing.JLabel();
+        jLPreco = new javax.swing.JLabel();
+        jBFechar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("PRODUTO CADASTRADO");
+
+        jLNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLNome.setText("jLabel2");
+
+        jLDescricao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLDescricao.setText("jLabel3");
+
+        jLQtd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLQtd.setText("jLabel4");
+
+        jLPreco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLPreco.setText("jLabel5");
+
+        jBFechar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jBFechar.setText("FECHAR");
+        jBFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFecharActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Nome");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Descrição");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Quantidade");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Preço");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2))
+                        .addGap(92, 92, 92)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLDescricao)
+                            .addComponent(jLQtd)
+                            .addComponent(jLPreco)
+                            .addComponent(jLNome)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel1)))
+                .addContainerGap(92, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jBFechar)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLNome)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLDescricao)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLQtd)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLPreco)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jBFechar)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +182,15 @@ public class ProdutoCadastrado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBFechar;
+    private javax.swing.JLabel jLDescricao;
+    private javax.swing.JLabel jLNome;
+    private javax.swing.JLabel jLPreco;
+    private javax.swing.JLabel jLQtd;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
