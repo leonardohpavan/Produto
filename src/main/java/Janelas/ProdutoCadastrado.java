@@ -11,7 +11,7 @@ import Objetos.Produto;
  * @author leonardo.hpavan
  */
 public class ProdutoCadastrado extends javax.swing.JFrame {
-
+    private Cadastro c;
     /**
      * Creates new form Produto
      */
@@ -19,12 +19,13 @@ public class ProdutoCadastrado extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ProdutoCadastrado(Produto p){
+    public ProdutoCadastrado(Produto p, Cadastro c){
         initComponents();
         jLNome.setText(p.getNome());
         jLDescricao.setText(p.getDescricao());
         jLQtd.setText(String.valueOf(p.getQtd()));
         jLPreco.setText(String.valueOf(p.getPreco()));
+        this.c = c;
     }
 
     /**
@@ -143,6 +144,7 @@ public class ProdutoCadastrado extends javax.swing.JFrame {
 
     private void jBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharActionPerformed
         this.dispose();
+        c.setVisible(true);
     }//GEN-LAST:event_jBFecharActionPerformed
 
     /**

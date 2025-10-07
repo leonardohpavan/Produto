@@ -38,6 +38,7 @@ public class Cadastro extends javax.swing.JFrame {
         jTQtd = new javax.swing.JTextField();
         jTPreco = new javax.swing.JTextField();
         jBCadastrar = new javax.swing.JButton();
+        jBLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +62,14 @@ public class Cadastro extends javax.swing.JFrame {
         jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCadastrarActionPerformed(evt);
+            }
+        });
+
+        jBLimpar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jBLimpar.setText("LIMPAR");
+        jBLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimparActionPerformed(evt);
             }
         });
 
@@ -89,7 +98,9 @@ public class Cadastro extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(165, 165, 165))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jBCadastrar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBCadastrar))
                         .addGap(29, 29, 29))))
         );
         layout.setVerticalGroup(
@@ -113,7 +124,9 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBCadastrar)
                 .addGap(46, 46, 46))
         );
@@ -122,16 +135,23 @@ public class Cadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
-        Produto p = new Produto(
-                jTNome.getText(),
-                jTDescricao.getText(),
-                Integer.parseInt(jTQtd.getText()),
-                Double.parseDouble(jTPreco.getText()));
+        Produto p = new Produto();
+        p.setNome(jTNome.getText());
+        p.setDescricao(jTDescricao.getText());
+        p.setQtd(Integer.valueOf(jTQtd.getText()));
+        p.setPreco(Double.valueOf(jTPreco.getText()));
         
-        ProdutoCadastrado pc = new ProdutoCadastrado(p);
+        ProdutoCadastrado pc = new ProdutoCadastrado(p, this);
         pc.setVisible(true);
-        pc.setLocationRelativeTo(this);
+        this.setVisible(false);
     }//GEN-LAST:event_jBCadastrarActionPerformed
+
+    private void jBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparActionPerformed
+        jTNome.setText("");
+        jTDescricao.setText("");
+        jTQtd.setText("");
+        jTPreco.setText("");
+    }//GEN-LAST:event_jBLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +190,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCadastrar;
+    private javax.swing.JButton jBLimpar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

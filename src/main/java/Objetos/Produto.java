@@ -13,14 +13,7 @@ public final class Produto {
     private String descricao;
     private int qtd;
     private Double preco;
-
     
-  public Produto(String nome, String descricao, int qtd, Double preco) {
-        setNome(nome);
-        setDescricao(descricao);
-        setQtd(qtd);
-        setPreco(preco);
-    }
     /**
      * @return the nome
      */
